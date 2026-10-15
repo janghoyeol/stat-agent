@@ -52,7 +52,15 @@ CASES = [
     EvalCase("pop_change_3", "전국 인구는 2023년에서 2024년 사이 얼마나 줄었어?",
              must_contain_all=["108108"], source_hints=["DT_1B04006", "행정안전부", "kosis"]),
     EvalCase("nonexistent_region", "삼성시 인구는 어떻게 변했어?",
-             must_contain_any=["못 찾", "찾을 수 없", "존재하지 않", "확인되지 않"]),
+             must_contain_any=["못 찾", "찾지 못", "찾을 수 없", "존재하지 않", "확인되지 않"]),
+    # v2: 더 어려운 케이스 — 6단계에서 추가. 지역명이 여러 도시에 걸쳐 있는 경우
+    # (중구: 서울/부산/대구/인천/대전/울산에 전부 있음, 8개 코드 중복) 와,
+    # 두 지역을 비교 판단까지 해야 하는 질문.
+    EvalCase("ambiguous_region", "중구 인구는 2023년에 얼마였어?",
+             must_contain_any=["어느", "어떤", "여러", "여섯", "구체적", "확인해", "말씀해주시",
+                                "말씀해 주시", "다릅니다", "후보", "지역에 따라"]),
+    EvalCase("compare_regions", "화성시랑 성남시 중 2022년에서 2024년 사이 인구가 더 많이 늘어난 곳은 어디야?",
+             must_contain_all=["화성"], source_hints=["DT_1B04006", "행정안전부", "kosis"]),
 ]
 
 
