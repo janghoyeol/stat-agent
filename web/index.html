@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>stat-agent</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main>
+    <h1>stat-agent</h1>
+    <p class="subtitle">국가통계포털(KOSIS)에 물어보세요. 모든 답은 출처와 함께 돌아옵니다.</p>
+
+    <form id="ask-form">
+      <input id="question" type="text" placeholder="예) 평택시 인구는 2022년에서 2023년 사이 얼마나 늘었어?" autocomplete="off" />
+      <button type="submit">질문</button>
+    </form>
+
+    <div id="status"></div>
+
+    <section id="trace"></section>
+
+    <section id="answer"></section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
